@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI 계산하기</title>
+  </head>
+  <body>
+    <h1>당신의 BMI는?</h1>
+    <form class="input__form">
+      <input class="height" type="number" placeholder="키를 입력하세요." />
+      <input class="weight" type="number" placeholder="몸무게를 입력하세요." />
+      <button class="button">확인!</button>
+      <br />
+      <span class="result"></span>
+    </form>
+    <script>
+      const input = document.querySelector(".input__form");
+      const height = document.querySelector(".height");
+      const weight = document.querySelector(".weight");
+      const result = document.querySelector(".result");
+
+      function getBmi(event) {
+        event.preventDefault();
+        const getBmi =
+          parseInt(weight.value) /
+          ((parseInt(height.value) / 100) * (parseInt(height.value) / 100));
+        result.innerText = `당신의 BMI는 ${Number(getBmi).toFixed(2)} 입니다.`;
+      }
+
+      input.addEventListener("submit", getBmi);
+    </script>
+  </body>
+</html>
