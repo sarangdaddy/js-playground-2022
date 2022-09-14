@@ -9,7 +9,17 @@
   <body>
     <h1>JS Playground</h1>
     <script>
-      console.log("Hello World");
+      const demo = document.getElementById("demo");
+      let size = 10;
+      function bit() {
+        demo.style.fontSize = `${size}px`;
+        if (size === 20) {
+          return;
+        }
+        size++;
+      }
+
+      setInterval(bit, 1000);
     </script>
   </body>
 </html>
