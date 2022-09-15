@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제1-2</title>
+  </head>
+  <body>
+    <h1>화씨 온도를 섭씨 온도로 나타내기</h1>
+    <form class="input__form">
+      <input class="input-one" placeholder="화씨를 입력하새요." />
+      <button>변환!</button>
+      <div class="result"></div>
+    </form>
+
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const inputF = document.querySelector(".input-one");
+      const result = document.querySelector(".result");
+
+      function getC(event) {
+        event.preventDefault();
+        const C = (Number(inputF.value) - 32) / 1.8;
+        result.innerText = `섭씨 온도는 ${C.toFixed(2)} ℃ 입니다.`;
+      }
+
+      inputForm.addEventListener("submit", getC);
+    </script>
+  </body>
+</html>
