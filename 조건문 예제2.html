@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문 예제 2</title>
+  </head>
+  <body>
+    <h1>대문자 소문자 구분하기</h1>
+    <form class="input__form">
+      <input class="input__value" placeholder="문자를 입력하세요." />
+      <div class="result"></div>
+    </form>
+
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const input = document.querySelector(".input__value");
+      const result = document.querySelector(".result");
+
+      function check(event) {
+        event.preventDefault();
+
+        const inputValue = input.value;
+
+        if (inputValue === inputValue.toUpperCase()) {
+          result.innerText = `${inputValue}은(는) 대문자 입니다.`;
+        } else if (inputValue === inputValue.toLowerCase()) {
+          result.innerText = `${inputValue}은(는) 소문자 입니다.`;
+        } else {
+          result.innerText = `${inputValue}은(는) 일반문자 입니다.`;
+        }
+        input.value = "";
+      }
+
+      inputForm.addEventListener("submit", check);
+    </script>
+  </body>
+</html>
