@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .input__number {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <form class="input__form">
+    <input
+      class="input__number"
+      placeholder="숫자를 입력하세요. 0을 입력하면 종료."
+    />
+    <div class="result__1"></div>
+  </form>
+  <body>
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const inputNumber = document.querySelector(".input__number");
+      const showResultOne = document.querySelector(".result__1");
+
+      const numberArray = [];
+
+      function getInput(event) {
+        event.preventDefault();
+        const inputValue = Number(inputNumber.value);
+        numberArray.push(inputValue);
+        const numberSum = numberArray.reduce((a, b) => a + b);
+        showResultOne.innerText = `입력 갯수는 ${numberArray.length} 입니다. 입력 숫자 총 합은 ${numberSum} 입니다.`;
+
+        inputNumber.value = "";
+
+        if (numberArray.includes(0)) {
+          showResultOne.innerText = `종료`;
+        }
+      }
+
+      inputForm.addEventListener("submit", getInput);
+    </script>
+  </body>
+</html>
