@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단</title>
+  </head>
+  <body>
+    <h1>구구단 생성기</h1>
+    <form class="input__form">
+      <input
+        class="input__gugudan"
+        placeholder="원하는 구구단 숫자를 입력하세요."
+      />
+      <h2><span class="gugudan__class"></span>단 구구단 입니다.</h2>
+      <div class="input__result"></div>
+    </form>
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const inputGugudan = document.querySelector(".input__gugudan");
+      const gugudanClass = document.querySelector(".gugudan__class");
+      const gugudanResult = document.querySelector(".input__result");
+
+      function getGugudan(event) {
+        const inputGugudanValue = Number(inputGugudan.value);
+        const gugudanNumber = inputGugudanValue;
+        event.preventDefault();
+        for (var i = 1; i < 10; i++) {
+          gugudanClass.innerText = `"${gugudanNumber}" `;
+          const gugudan = gugudanNumber * i;
+          const array = [i];
+          gugudanResult.innerText = `${gugudanNumber} * ${array} = ${gugudan}`;
+        }
+        inputGugudan.value = "";
+      }
+
+      inputForm.addEventListener("submit", getGugudan);
+    </script>
+  </body>
+</html>
