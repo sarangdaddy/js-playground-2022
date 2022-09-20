@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .input__gugudan {
+        width: 200px;
+      }
+    </style>
+    <title>구구단</title>
+  </head>
+  <body>
+    <h1>구구단 생성기</h1>
+    <form class="input__form">
+      <input
+        class="input__gugudan"
+        placeholder="원하는 구구단 숫자를 입력하세요."
+      />
+      <h2><span class="gugudan__class"></span>단 구구단 입니다.</h2>
+      <div class="input__result"></div>
+    </form>
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const inputGugudan = document.querySelector(".input__gugudan");
+      const inputResult = document.querySelector(".input__result");
+      const gugudanClass = document.querySelector(".gugudan__class");
+
+      function getGugudan(event) {
+        event.preventDefault();
+        const gugudanNumber = Number(inputGugudan.value);
+        let gugudanResult = "";
+
+        if (gugudanNumber < 2 || gugudanNumber > 9) {
+          alert("2 이상 9이하의 숫자를 입력하세요.");
+        } else {
+          for (var i = 1; i < 10; i++) {
+            gugudanClass.innerText = `"${gugudanNumber}" `;
+            const gugudanValue = gugudanNumber * i;
+            gugudanResult += `${gugudanNumber} * ${i} = ${gugudanValue}<br>`;
+            inputResult.innerHTML = gugudanResult;
+          }
+        }
+        inputGugudan.value = "";
+      }
+
+      inputForm.addEventListener("submit", getGugudan);
+    </script>
+  </body>
+</html>
