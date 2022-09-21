@@ -10,17 +10,25 @@ function addAllNumbers() {
   }
 }
 
-function isPrimeNumber() {
-  const numbersPrime = [];
-  for (var i = 1; i <= 10000; i++) {
-    for (var j = 1; j <= i; j++) {
-      if (i % j === 0) {
-        numbersPrime.push(i);
-        numbers.prime = numbersPrime;
-      }
+const numbersPrime = [];
+const isPrime = true;
+
+if (number <= 1) {
+  isPrime = false;
+} else if (number === 2) {
+  isPrime = true;
+} else {
+  for (var i = 2; i < number; i++) {
+    if (number % i === 0) {
+      isPrime = false;
+      console.log(isPrime, i);
+      break;
     }
   }
 }
 
+if (isPrime === true) {
+  numbersPrime.push(isPrime);
+}
+
 addAllNumbers();
-isPrimeNumber();
