@@ -9,14 +9,15 @@
   <body>
     <script>
       var result = [];
-      var length = 9;
 
-      for (var n = 2; n <= length; n++) {
-        for (var i = 1; i <= length; i++) {
-          result = [n * i];
-          let gugudanResult = "";
-          let gugudanValue = result;
-          gugudanResult = `${n}*${i}=${gugudanValue}<br>`;
+      for (var n = 2; n <= 9; n++) {
+        for (var i = 1; i <= 9; i++) {
+          result[i] = n * i;
+        }
+        document.write(`<br>${n}단<br>`);
+        for (var i = 1; i <= 9; i++) {
+          var gugudanResult = "";
+          gugudanResult = `${n} X ${i} = ${result[i]}<br>`;
           document.write(gugudanResult);
         }
       }
