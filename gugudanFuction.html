@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단표</title>
+  </head>
+  <body>
+    <h1>구구단표</h1>
+
+    <script>
+      var results = [];
+
+      function calculrate(n) {
+        for (var n = 2; n < 10; n++) {
+          for (var i = 1; i < 10; i++) {
+            results[i] = n * i;
+          }
+          print(n);
+        }
+      }
+
+      function print(n) {
+        document.write(`<br>${n}단<br>`);
+        for (var i = 1; i < 10; i++) {
+          var gugudanResult = "";
+          gugudanResult += `${n} X ${i} = ${results[i]}<br>`;
+          document.write(gugudanResult);
+        }
+      }
+
+      calculrate();
+    </script>
+  </body>
+</html>
