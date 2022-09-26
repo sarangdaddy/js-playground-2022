@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단 오브젝트</title>
+  </head>
+  <body>
+    <script>
+      gugudan = {};
+
+      gugudan.calculate = function (n) {
+        var gugudanResult = [];
+        for (var i = 1; i <= 9; i++) {
+          gugudanResult[i] = n * i;
+        }
+        return gugudanResult;
+      };
+
+      gugudan.printResult = function (n, result) {
+        document.write(`<h2>${n}단</h2>`);
+        for (var i = 1; i <= 9; i++) {
+          document.write(`${n} X ${i} = ${result[i]}<br>`);
+        }
+      };
+
+      gugudan.main = function () {
+        for (var n = 2; n <= 9; n++) {
+          var result = this.calculate(n);
+          this.printResult(n, result);
+        }
+      };
+
+      gugudan.main();
+    </script>
+  </body>
+</html>
