@@ -12,8 +12,8 @@
 
       gugudan.calculate = function (n) {
         var gugudanResult = [];
-        for (var i = 1; i <= 9; i++) {
-          gugudanResult[i] = n * i;
+        for (var i = 0; i < 9; i++) {
+          gugudanResult[i] = n * (i + 1);
         }
         return gugudanResult;
       };
@@ -21,7 +21,7 @@
       gugudan.printResult = function (n, result) {
         document.write(`<h2>${n}단</h2>`);
         for (var i = 1; i <= 9; i++) {
-          document.write(`${n} X ${i} = ${result[i]}<br>`);
+          document.write(`${n} X ${i} = ${result[i - 1]}<br>`);
         }
       };
 
