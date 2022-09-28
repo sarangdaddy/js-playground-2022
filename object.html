@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var Human = function (name, hp, power) {
+        this.name = name;
+        this.hp = hp;
+        this.power = power;
+        this.attack = function (target) {
+          console.log(`${this.name}이 ${target.name}을 공격했다.`);
+          target.hp -= this.power;
+        };
+        this.show = function () {
+          console.log(`[${this.name}] ${this.hp}`);
+        };
+      };
+
+      var p1 = new Human("Apple", 100, 10);
+      var p2 = new Human("Samsung", 80, 5);
+
+      var Food = function (name, energy) {
+        this.name = name;
+        this.energy = energy;
+        this.feed = function (Human) {
+          Human.hp += this.energy;
+        };
+      };
+
+      var f1 = new Food("pizza", 20);
+    </script>
+  </body>
+</html>
