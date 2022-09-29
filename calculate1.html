@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기 1단계</title>
+    <style>
+      .input__value {
+        width: 280px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>간단한 계산기</h1>
+    <form class="input__form">
+      <input
+        class="input__value"
+        type="text"
+        placeholder="원하는 계산식을 (n,*,n,/) 식으로 입력하세요."
+      />
+      <br />
+      <div class="result"></div>
+    </form>
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const inputValue = document.querySelector(".input__value");
+      const result = document.querySelector(".result");
+
+      function getInputValue(event) {
+        event.preventDefault();
+        strValue = inputValue.value;
+        inputValue.value = "";
+        arrayValue = strValue.split(",");
+        selectType(arrayValue);
+      }
+
+      function selectType(arrayValue) {
+        let n = [];
+        let op = [];
+        const length = arrayValue.length - 1;
+        for (var i = 0; i <= length; i++) {
+          if (i === 0 || i % 2 === 0) {
+            n.push(arrayValue[i]);
+          } else {
+            op.push(arrayValue[i]);
+          }
+        }
+        calculate(n, op);
+      }
+
+      function calculate(n, op) {
+        var resultA = "";
+        resultA = eval(`${n[0]}${op[0]}${n[1]}`);
+        console.log(resultA);
+      }
+
+      inputForm.addEventListener("submit", getInputValue);
+    </script>
+  </body>
+</html>
