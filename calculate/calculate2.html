@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기 1단계</title>
+    <style>
+      .input__value {
+        width: 280px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>간단한 계산기</h1>
+    <form class="input__form">
+      <input
+        class="input__value"
+        type="text"
+        placeholder="원하는 계산식을 입력하세요."
+      />
+      <br />
+      <div class="result"></div>
+    </form>
+    <script>
+      const inputForm = document.querySelector(".input__form");
+      const inputValue = document.querySelector(".input__value");
+      const resultShow = document.querySelector(".result");
+
+      let n1 = Number(prompt("첫번째 숫자를 입력하세요."));
+      let n2 = "";
+      let op = "";
+      let result = n1;
+
+      let n = 2;
+
+      while (true) {
+        op = prompt("연산자를 입력하세요.");
+
+        if (op === "q") {
+          break;
+        }
+
+        n2 = Number(prompt(`${n}번째 숫자를 입력하세요.`));
+
+        if (op === "+") {
+          result = result + n2;
+        } else if (op === "-") {
+          result = result - n2;
+        } else if (op === "*") {
+          result = result * n2;
+        } else if (op === "/") {
+          result = result / n2;
+        }
+        n++;
+      }
+
+      resultShow.innerHTML = result;
+    </script>
+  </body>
+</html>
