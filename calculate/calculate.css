@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result__show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result {
+  color: tomato;
+  size: 15px;
+}

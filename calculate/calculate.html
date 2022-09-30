@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기</title>
+    <link rel="stylesheet" href="calculate.css" />
+  </head>
+  <body>
+    <h1>간단한 계산기</h1>
+    <form class="input__form">
+      <input
+        class="input__n1"
+        type="number"
+        placeholder="숫자1을 입력하세요."
+      />
+      <br />
+      <input
+        class="input__op1"
+        type="text"
+        placeholder="연산기호1을 입력하세요."
+      />
+      <br />
+      <input
+        class="input__n2"
+        type="number"
+        placeholder="숫자2를 입력하세요."
+      />
+      <br />
+      <br />
+      <div class="result__show">
+        <button class="input__button">확인</button>
+        <br />
+        <div class="result"></div>
+      </div>
+    </form>
+    <script src="calculate.js"></script>
+  </body>
+</html>
