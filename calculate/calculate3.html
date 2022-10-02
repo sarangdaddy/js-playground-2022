@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기 함수사용</title>
+    <style>
+      .input__value {
+        width: 280px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>함수사용 계산기</h1>
+    <div class="result"></div>
+
+    <script>
+      function getFisrtValue() {
+        let n1 = Number(prompt("첫번째 숫자를 입력하세요."));
+        return n1;
+      }
+
+      function getOpValue() {
+        while (true) {
+          op = prompt("연산자를 입력하세요.");
+
+          if (
+            op === "=" ||
+            op === "+" ||
+            op === "-" ||
+            op === "*" ||
+            op === "/"
+          ) {
+            break;
+          }
+          alert("올바른 연사자를 입력하세요.");
+        }
+        return op;
+      }
+
+      let n = 2;
+      function getSecondValue() {
+        n2 = Number(prompt(`${n}번째 숫자를 입력하세요.`));
+        n++;
+        return n2;
+      }
+
+      function calculate(n1, n2, op) {
+        let calResult;
+        switch (op) {
+          case "+":
+            calResult = n1 + n2;
+            break;
+          case "-":
+            calResult = n1 - n2;
+            break;
+          case "*":
+            calResult = n1 * n2;
+            break;
+          case "/":
+            calResult = n1 / n2;
+            break;
+        }
+        return calResult;
+      }
+
+      function print(resultValue) {
+        const resultShow = document.querySelector(".result");
+        resultShow.innerHTML = `계산값은 ${resultValue} 입니다.`;
+      }
+
+      function main() {
+        let result = getFisrtValue();
+
+        while (true) {
+          let op = getOpValue();
+          if (op === "=") {
+            break;
+          }
+          let n2 = getSecondValue();
+          result = calculate(result, n2, op);
+        }
+
+        print(result);
+      }
+
+      main();
+    </script>
+  </body>
+</html>
