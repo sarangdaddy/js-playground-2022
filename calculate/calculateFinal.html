@@ -17,7 +17,7 @@
       <input
         class="input__value"
         type="text"
-        placeholder="원하는 계산식을 (n,*,n,/) 식으로 입력하세요."
+        placeholder="원하는 계산식을 (n * n /) 식으로 입력하세요."
       />
       <br />
       <div class="result"></div>
@@ -27,35 +27,21 @@
       const inputValue = document.querySelector(".input__value");
       const result = document.querySelector(".result");
 
-      function getInputValue(event) {
+      const input = {};
+
+      input.getInputValue = function (event) {
         event.preventDefault();
         strValue = inputValue.value;
+        inputValueArray = strValue.split("");
         inputValue.value = "";
-        arrayValue = strValue.split(",");
-        selectType(arrayValue);
-      }
+        input.getFirstValue(inputValueArray);
+      };
 
-      function selectType(arrayValue) {
-        let n = [];
-        let op = [];
-        const length = arrayValue.length - 1;
-        for (var i = 0; i <= length; i++) {
-          if (i === 0 || i % 2 === 0) {
-            n.push(arrayValue[i]);
-          } else {
-            op.push(arrayValue[i]);
-          }
-        }
-        calculate(n, op);
-      }
+      input.getFirstValue = function (inputValueArray) {
+        const n1 = inputValueArray[0];
+      };
 
-      function calculate(n, op) {
-        var resultA = "";
-        resultA = eval(`${n[0]}${op[0]}${n[1]}`);
-        console.log(resultA);
-      }
-
-      inputForm.addEventListener("submit", getInputValue);
+      inputForm.addEventListener("submit", input.getInputValue);
     </script>
   </body>
 </html>
