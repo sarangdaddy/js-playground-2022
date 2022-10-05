@@ -1,0 +1,40 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.result__clone {
+  background-color: gainsboro;
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: solid 2px black;
+  border-radius: 10px;
+}
+
+.button__clone button {
+  width: 70px;
+  padding: 5px;
+  margin: 3px;
+  background-color: skyblue;
+}
+
+.button__clone button:focus {
+  background-color: aquamarine;
+  color: white;
+}
+
+.button__clone button.option {
+  width: 70px;
+  padding: 5px;
+  margin: 3px;
+  background-color: tomato;
+}
+
+.button__clone button.option:focus {
+  background-color: rgb(230, 94, 196);
+  color: white;
+}
