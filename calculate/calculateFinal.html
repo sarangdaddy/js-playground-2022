@@ -34,12 +34,66 @@
         strValue = inputValue.value;
         inputValueArray = strValue.split("");
         inputValue.value = "";
-        input.getFirstValue(inputValueArray);
+        main(inputValueArray, strValue);
       };
 
       input.getFirstValue = function (inputValueArray) {
-        const n1 = inputValueArray[0];
+        const n1 = Number(inputValueArray.shift());
+        return n1;
       };
+
+      input.getOpValue = function (inputValueArray) {
+        let op = inputValueArray.shift();
+        return op;
+      };
+
+      input.getSecondValue = function (inputValueArray) {
+        const n2 = Number(inputValueArray.shift());
+        return n2;
+      };
+
+      const calculator = {};
+
+      calculator.calculate = function (n1, n2, op) {
+        let calResult = "";
+        switch (op) {
+          case "+":
+            calResult = n1 + n2;
+            break;
+          case "-":
+            calResult = n1 - n2;
+            break;
+          case "*":
+            calResult = n1 * n2;
+            break;
+          case "/":
+            calResult = n1 / n2;
+            break;
+        }
+        return calResult;
+      };
+
+      const output = {};
+
+      output.print = function (resultValue, strValue) {
+        const resultShow = document.querySelector(".result");
+        resultShow.innerHTML = `${strValue}의 계산값은 ${resultValue} 입니다.`;
+      };
+
+      function main(inputValueArray, strValue) {
+        let resultValue = input.getFirstValue(inputValueArray);
+
+        while (true) {
+          let op = input.getOpValue(inputValueArray);
+          if (inputValueArray.length === 0) {
+            break;
+          }
+          let n2 = input.getSecondValue(inputValueArray);
+          resultValue = calculator.calculate(resultValue, n2, op);
+        }
+
+        output.print(resultValue, strValue);
+      }
 
       inputForm.addEventListener("submit", input.getInputValue);
     </script>
