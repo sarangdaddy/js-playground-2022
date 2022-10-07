@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function fibo(n) {
+        if (n <= 0) {
+          return 0;
+        }
+        if (n == 1) {
+          return 1;
+        }
+        return fibo(n - 1) + fibo(n - 2);
+      }
+
+      var arr = [0, 1];
+      function fibo_d(n) {
+        if (arr[n] == undefined) {
+          arr[n] = fibo_d(n - 1) + fibo_d(n - 2);
+        }
+        return arr[n];
+      }
+
+      var test = 40;
+
+      var t1 = Date.now();
+      fibo(test);
+      var t2 = Date.now();
+      var x = fibo(test);
+      console.log(`${x} fibo의 측정 시간은 ${(t2 - t1) / 1000} 입니다.`);
+
+      t1 = Date.now();
+      fibo_d(test);
+      t2 = Date.now();
+      var x = fibo_d(test);
+      console.log(`${x} fibo_d의 측정 시간은 ${(t2 - t1) / 1000} 입니다.`);
+    </script>
+  </body>
+</html>
