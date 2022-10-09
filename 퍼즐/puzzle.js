@@ -62,3 +62,17 @@ const checkStr = function () {
 
 choiceStr();
 checkStr();
+
+//shuffle
+
+const toggle = Math.floor(Math.random() * 2) === 0;
+
+if (toggle) {
+  swap();
+}
+
+const n = Math.floor(Math.random() * targetArray.length);
+
+for (let i = 0; i <= 0; i++) {
+  shiftRight();
+}
