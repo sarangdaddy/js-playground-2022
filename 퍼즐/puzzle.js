@@ -1,27 +1,32 @@
 const titleStr = document.querySelector(".string");
 const buttonStr = document.querySelector(".string__button");
 
-function choiceStr() {
-  let strArray = ["HELLO", "SUNGUN", "SOOJIN", "SARANG", "SORRY", "MONEY"];
-  let randomStrArray = "";
-  for (let i = 0; i < strArray.length; i++) {
-    randomStrArray = strArray[Math.floor(Math.random() * strArray.length)];
+const game = { strArray: [] };
+let targetArray = [];
+
+// 여러 단어 중 랜덤으로 시작 단어를 선택
+game.choiceStr = function () {
+  this.strArray = ["HELLO", "SUNGUN", "SOOJIN", "SARANG", "SORRY", "MONEY"];
+  this.randomStrArray = "";
+  for (let i = 0; i < this.strArray.length; i++) {
+    this.randomStrArray =
+      this.strArray[Math.floor(Math.random() * this.strArray.length)];
   }
-  targetArray = randomStrArray.split("");
-  showSrt(randomStrArray);
-}
+  targetArray = this.randomStrArray.split("");
+  game.showSrt();
+};
 
-targetArray = "";
-
-function showSrt(randomStrArray) {
-  for (let i = 0; i < randomStrArray.length; i++) {
+// 선택돤 단어(targetArray)를 화면에 표시
+game.showSrt = function () {
+  for (let i = 0; i < this.randomStrArray.length; i++) {
     let showTarget = document.createElement("button");
     showTarget.innerHTML = targetArray[i];
     buttonStr.appendChild(showTarget);
   }
   titleStr.innerHTML = targetArray.join("");
-}
+};
 
+//게임 버튼 (뒤집기, 밀기, 당기기)
 const swap = function (event) {
   targetArray = targetArray.reverse();
   targetStr = targetArray.join("");
@@ -44,6 +49,7 @@ const shiftLeft = function (event) {
   changeStr(targetStr);
 };
 
+// 게임 버튼 실행시 단어 순서 변경
 const changeStr = function (targetStr) {
   for (let i = 0; i < targetStr.length; i++) {
     let chStr = document.querySelectorAll(".string__button button");
@@ -52,6 +58,7 @@ const changeStr = function (targetStr) {
   }
 };
 
+// 변경된 단어 순서와 처음 선택된 단어 매칭 프로그램
 const checkStr = function () {
   if (titleStr.innerText === targetArray.join("")) {
     document.querySelector(".check").innerText = "일치합니다.";
@@ -60,11 +67,11 @@ const checkStr = function () {
   }
 };
 
-choiceStr();
+// 화면 시작과 동시 실행 함수
+game.choiceStr();
 checkStr();
 
-//shuffle
-
+//화면 시작과 동시에 단어 순서 셔플
 const toggle = Math.floor(Math.random() * 2) === 0;
 
 if (toggle) {
