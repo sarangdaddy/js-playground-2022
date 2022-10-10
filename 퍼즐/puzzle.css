@@ -15,13 +15,13 @@ button {
   margin-bottom: 15px;
 }
 
-.layout__clone:first-child {
+.layout__clone:nth-child(2) {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
-.layout__clone:first-child button {
+.layout__clone:nth-child(2) button {
   margin-right: 5px;
   margin-top: 10px;
 }
