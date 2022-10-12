@@ -1,8 +1,11 @@
 const targetWord = document.querySelector(".string");
 const buttonStr = document.querySelector(".string__button");
 const progress = document.querySelector(".progress");
+const timeCheck = document.querySelector(".time__check");
 
 let game = { wordsArray: [], btns: [], maxPlay: 3, current: 0 };
+
+game.startTime = Date.now();
 
 // 여러 단어 중 랜덤으로 시작 단어를 선택
 game.choiceWord = function () {
@@ -117,10 +120,14 @@ game.progress = function () {
   }
 
   if (this.current === this.maxPlay) {
-    alert("Good! Thanks for playing");
+    this.FinishTime = Date.now();
+    let recordTime = ((this.FinishTime - this.startTime) / 1000).toFixed(1);
+    alert(`Good! Your record is ${recordTime}s`);
+    clearInterval(updateTime);
     str = "";
     progress.innerHTML = str;
     this.current = 0;
+    this.startTime = Date.now();
   }
 };
 
@@ -132,3 +139,11 @@ game.init = function () {
   this.checkStr();
 };
 game.init();
+
+// 게임 진행 시간 표시
+const updateTime = function () {
+  let now = (Date.now() - game.startTime) / 1000;
+  timeCheck.innerText = now.toFixed(2);
+};
+
+setInterval(updateTime, 110);

@@ -25,3 +25,13 @@ button {
   margin-right: 5px;
   margin-top: 10px;
 }
+
+.layout__clone:nth-child(4) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.time__check {
+  color: tomato;
+}
